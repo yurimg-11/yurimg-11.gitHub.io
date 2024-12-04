@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Libro</title>
+</head>
+<body>
+    <h1>Buscar Libro</h1>
+    <form action="operaciones/buscar_libro.php" method="GET">
+        <!-- Campo para el título -->
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo">
+        <br><br>
+
+        <!-- Campo para el género -->
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero">
+            <option value="">Seleccione un género</option>
+            <option value="1">Ficción</option>
+            <option value="2">Ciencia</option>
+            <option value="3">Historia</option>
+        </select>
+        <br><br>
+
+        <!-- Campo para el ID de Registro -->
+        <label for="id_registro">ID de Registro:</label>
+        <input type="text" id="id_registro" name="id_registro" placeholder="Ejemplo: R1234">
+        <br><br>
+
+        <!-- Campo para el Año de Publicación -->
+        <label for="año_publicacion">Año de Publicación:</label>
+        <input type="number" id="año_publicacion" name="año_publicacion" placeholder="Ejemplo: 2015">
+        <br><br>
+
+        <!-- Botón de búsqueda -->
+        <button type="submit">Buscar</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro, Búsqueda, Edición y Eliminación de Devoluciones</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <!-- Formulario de registro de devolución -->
+    <h2>Registro de Devolución</h2>
+    <form id="formRegistro" method="POST" action="operaciones/registrar_devolucion.php?action=registrar">
+        <div class="mb-3">
+            <label for="id_devolucion" class="form-label">ID Devolución</label>
+            <input type="text" class="form-control" id="id_devolucion" name="id_devolucion" required>
+        </div>
+        <div class="mb-3">
+            <label for="id_prestamo" class="form-label">ID Prestamo</label>
+            <input type="text" class="form-control" id="id_prestamo" name="id_prestamo" required>
+        </div>
+        <div class="mb-3">
+            <label for="fecha_devolucion" class="form-label">Fecha Devolución</label>
+            <input type="date" class="form-control" id="fecha_devolucion" name="fecha_devolucion" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar Devolución</button>
+    </form>
+
+    <hr>
+
+    <!-- Formulario de búsqueda de devolución -->
+    <h3>Buscar Devolución por ID</h3>
+    <form id="formBusqueda" method="GET">
+        <div class="mb-3">
+            <label for="id_devolucion_buscar" class="form-label">ID Devolución</label>
+            <input type="text" class="form-control" id="id_devolucion_buscar" name="id_devolucion" required>
+        </div>
+        <button type="submit" class="btn btn-secondary">Buscar</button>
+    </form>
+
+    <!-- Resultado de búsqueda -->
+    <div id="resultados-busqueda" class="mt-3">
+        <!-- Los resultados de la búsqueda o mensajes de error se mostrarían aquí -->
+    </div>
+</div>
+
+<script>
+    // Manejador de eventos para búsqueda sin recargar la página
+    document.getElementById('formBusqueda').addEventListener('submit', async (e) => {
+        e.preventDefault();  // Prevenir recarga de la página
+        const idDevolucion = document.getElementById('id_devolucion_buscar').value;
+        
+        // Hacer la petición al PHP para buscar la devolución
+        const response = await fetch(`operaciones/registrar_devolucion.php?action=buscar&id_devolucion=${idDevolucion}`);
+        const result = await response.text();
+        
+        // Mostrar los resultados en la página
+        document.getElementById('resultados-busqueda').innerHTML = result;
+    });
+</script>
+
+</body>
+</html>

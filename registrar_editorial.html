@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Editoriales</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Gestión de Editoriales</h2>
+
+    <!-- Formulario para registrar nueva editorial -->
+    <form action="operaciones/registrar_editorial.php" method="POST" class="mb-4">
+        <input type="hidden" name="accion" value="registrar">
+        <div class="form-group">
+            <label for="nombre_editorial">Nombre de la Editorial:</label>
+            <input type="text" id="nombre_editorial" name="nombre_editorial" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar Editorial</button>
+    </form>
+
+    <!-- Formulario para buscar editorial -->
+    <form action="operaciones/registrar_editorial.php" method="GET" class="mb-4">
+        <input type="hidden" name="accion" value="buscar">
+        <div class="form-group">
+            <label for="id_editorial_buscar">ID de la Editorial:</label>
+            <input type="number" id="id_editorial_buscar" name="id_editorial" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-secondary">Buscar Editorial</button>
+    </form>
+
+    <!-- Resultado de búsqueda -->
+    <div id="resultado-busqueda" class="mt-4">
+        <!-- Este contenedor será dinámicamente actualizado por el PHP -->
+        <!-- Si hay un resultado, aquí aparecerán los formularios de edición/eliminación -->
+    </div>
+
+    <!-- Mostrar mensajes de éxito o error -->
+    <div id="mensaje" class="mt-4">
+        <!-- Este contenedor será dinámicamente actualizado con mensajes de PHP -->
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Registro de Usuario</title>
+    <link href="css/registro_usuario.css" rel="stylesheet" />
+    <script>
+        function verificarContraseñas() {
+            const password = document.querySelector('input[name="password"]').value;
+            const confirmPassword = document.querySelector('input[name="confirm_password"]').value;
+            const mensaje = document.getElementById('password-message');
+            
+            if (password !== confirmPassword) {
+                mensaje.textContent = "Las contraseñas no coinciden.";
+                mensaje.style.color = "red";
+                return false;
+            } else {
+                mensaje.textContent = "Las contraseñas coinciden.";
+                mensaje.style.color = "green";
+                return true;
+            }
+        }
+
+        function validarFormulario(event) {
+            if (!verificarContraseñas()) {
+                event.preventDefault(); // Evita el envío del formulario si las contraseñas no coinciden
+                alert("Por favor, asegúrate de que las contraseñas coincidan.");
+            }
+        }
+    </script>
+</head>
+<body class="bg-primary">
+    <div id="registro_usuario">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header">
+                                <h3 class="text-center font-weight-light my-4">Crea una Cuenta</h3>
+                            </div>
+                            <div class="card-body">
+                                <form action="operaciones/registro_usuario.php" method="POST" onsubmit="validarFormulario(event)">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3 mb-md-0">
+                                                <input class="form-control" name="nombre" type="text" placeholder="Tu nombre" required />
+                                                <label>Nombre</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input class="form-control" name="apellido" type="text" placeholder="Tu apellido" required />
+                                                <label>Apellido</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" name="correo" type="email" placeholder="name@example.com" required />
+                                        <label>Correo Electrónico</label>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3 mb-md-0">
+                                                <input class="form-control" name="contraseña" type="password" placeholder="Contraseña" required oninput="verificarContraseñas()" />
+                                                <label>Contraseña</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3 mb-md-0">
+                                                <input class="form-control" name="confirmar_contraseña" type="password" placeholder="Confirmar Contraseña" required oninput="verificarContraseñas()" />
+                                                <label>Confirmar Contraseña</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="password-message" class="mb-3"></div>
+                                    <div class="mt-4 mb-0">
+                                        <div class="d-grid">
+                                            <button class="btn btn-primary" type="submit">Crear Cuenta</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                            </div>
+                            <div class="card-footer text-center py-3">
+                                <div class="small"><a href="index.html">¿Ya tienes cuenta? Inicia Sesión</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
