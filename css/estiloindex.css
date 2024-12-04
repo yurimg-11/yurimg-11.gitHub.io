@@ -1,0 +1,75 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Color de fondo para el cuerpo */
+}
+
+header {
+    background-color: #4CAF50; /* Fondo verde del encabezado */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Menú */
+nav {
+    background-color: #333; /* Fondo negro para el menú */
+    padding: 0;
+    margin-top: 10px; /* Espacio debajo del encabezado */
+}
+
+ul.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly; /* Distribuye los elementos del menú equitativamente */
+    align-items: center;
+}
+
+ul.menu li {
+    margin: 0;
+}
+
+ul.menu li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    background-color: #333;
+    text-align: center;
+}
+
+ul.menu li a:hover {
+    background-color: #575757; /* Fondo gris oscuro al pasar el cursor */
+}
+
+/* Imagen */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto 0; /* Espacio entre el menú y la imagen */
+    border-radius: 10px; /* Bordes redondeados para la imagen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle un toque visual */
+}
+
+footer {
+    background-color: #333; /* Dark background */
+    color: white; /* White text */
+    text-align: center; /* Center the text */
+    padding: 10px 0; /* Top and bottom padding */
+    position: relative; /* For positioning purposes */
+    width: 100%; /* Full width */
+    bottom: 0; /* Align at the bottom of the page */
+}
